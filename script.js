@@ -18,12 +18,35 @@ var fiveSave = $("#fiveSave");
 var fiveText = $("#fiveText");
 
 
-nineSave.click(function() {
-    var textToSave = nineText.val()
-    console.log(textToSave)
-   
-    localStorage.setItem("nineAM",textToSave)
-})
+hourBlocks = [nineText,tenText,elevenText,twelveText,oneText,twoText,threeText,fourText,fiveText]
+
+hourBlocks.forEach(hourBox, i)=> {
+    var hour = hour + 9
+    console.log(hour)
+};
+
+// var localStorageKey = ["tenAM","nineAM"];
+// var timeBlockTextID = [$("#tenText"),$("#nineText")]
 
 
-console.log(moment().format("hA"));
+// function retrieved() {
+//     localStorageKey.forEach(element => {
+        
+//     });
+// }
+// (lSK,tBTID) {
+//     var retrievedText = (localStorage.getItem((lSK)));
+//     tBTID.text(retrievedText)
+// }
+
+
+// var nineRetrieved = (localStorage.getItem("nineAM"));
+// $("#nineText").text(nineRetrieved)
+
+// $("#nineSave").click(function() {
+//     nineToSave = $("#nineText").val()
+//     localStorage.setItem("nineAM", nineToSave)
+// })
+
+// console.log(moment().get('hour'));
+

@@ -1,52 +1,76 @@
-var nineSave = $("#nineSave");
-var nineText = $("#nineText");
-var tenSave = $("#tenSave");
-var tenText = $("#tenText");
-var elevenSave = $("#elevenSave");
-var elevenText = $("#elevenText");
-var twelveSave = $("#twelveSave");
-var twelveText = $("#twelveText");
-var oneText = $("#oneText");
-var oneSave = $("#oneSave");
-var twoText = $("#twoText");
-var twoSave = $("#twoSave");
-var threeText = $("#threeText");
-var threeSave = $("#threeSave");
-var fourText = $("#fourText");
-var fourSave = $("#fourSave");
-var fiveSave = $("#fiveSave");
-var fiveText = $("#fiveText");
+// grabbing each hourblock textarea id for use with the time forloop below.
+var hourBlocks = [$("#nineText"),$("#tenText"),$("#elevenText"),$("#twelveText"),$("#oneText"),$("#twoText"),$("#threeText"),$("#fourText"),$("#fiveText")]
 
+// for loop comparing current time with index of hourblock hours to get color differentiation
+for (let i = 0; i < hourBlocks.length; i++) {
+    var hour = i + 9 
+    if (hour < moment().get("hour")) {
+        hourBlocks[i].addClass("past")
+    } else if (hour > moment().get("hour")) {
+        hourBlocks[i].addClass("future")
+    } else if(hour === moment().get("hour")) {
+        hourBlocks[i].addClass("present")
+    }    
+}
 
-hourBlocks = [nineText,tenText,elevenText,twelveText,oneText,twoText,threeText,fourText,fiveText]
+// function to retrieve text values save to localStorage from prior saves
+function retrieveSavedText() {
+    $("#nineText").text(localStorage.getItem("nineAM"));
+    $("#tenText").text(localStorage.getItem("tenAM"));
+    $("#elevenText").text(localStorage.getItem("elevenAM"));
+    $("#twelveText").text(localStorage.getItem("twelveAM"));
+    $("#oneText").text(localStorage.getItem("oneAM"));
+    $("#twoText").text(localStorage.getItem("twoAM"));
+    $("#threeText").text(localStorage.getItem("threeAM"));
+    $("#fourText").text(localStorage.getItem("fourAM"));
+    $("#fiveText").text(localStorage.getItem("fiveAM"));
+}
 
-hourBlocks.forEach(hourBox, i)=> {
-    var hour = hour + 9
-    console.log(hour)
-};
+// save to localStorage upon save button clicks
+$("#nineSave").click(function() {
+    nineToSave = $("#nineText").val()
+    localStorage.setItem("nineAM", nineToSave)
+})
 
-// var localStorageKey = ["tenAM","nineAM"];
-// var timeBlockTextID = [$("#tenText"),$("#nineText")]
+$("#tenSave").click(function() {
+    tenToSave = $("#tenText").val()
+    localStorage.setItem("tenAM", tenToSave)
+})
 
+$("#elevenSave").click(function() {
+    elevenToSave = $("#elevenText").val()
+    localStorage.setItem("elevenAM", elevenToSave)
+})
 
-// function retrieved() {
-//     localStorageKey.forEach(element => {
-        
-//     });
-// }
-// (lSK,tBTID) {
-//     var retrievedText = (localStorage.getItem((lSK)));
-//     tBTID.text(retrievedText)
-// }
+$("#twelveSave").click(function() {
+    twelveToSave = $("#twelveText").val()
+    localStorage.setItem("twelveAM", twelveToSave)
+})
 
+$("#oneSave").click(function() {
+    oneToSave = $("#oneText").val()
+    localStorage.setItem("oneAM", oneToSave)
+})
 
-// var nineRetrieved = (localStorage.getItem("nineAM"));
-// $("#nineText").text(nineRetrieved)
+$("#twoSave").click(function() {
+    twoToSave = $("#twoText").val()
+    localStorage.setItem("twoAM", twoToSave)
+})
 
-// $("#nineSave").click(function() {
-//     nineToSave = $("#nineText").val()
-//     localStorage.setItem("nineAM", nineToSave)
-// })
+$("#threeSave").click(function() {
+    threeToSave = $("#threeText").val()
+    localStorage.setItem("threeAM", threeToSave)
+})
 
-// console.log(moment().get('hour'));
+$("#fourSave").click(function() {
+    fourToSave = $("#fourText").val()
+    localStorage.setItem("fourAM", fourToSave)
+})
 
+$("#fiveSave").click(function() {
+    fiveToSave = $("#fiveText").val()
+    localStorage.setItem("fiveAM", fiveToSave)
+})
+
+// call on function to retrieve hourblock text values from localStorage
+retrieveSavedText()

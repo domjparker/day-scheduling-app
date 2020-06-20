@@ -1,16 +1,16 @@
 // grabbing each hourblock textarea id for use with the time forloop below.
-var hourBlocks = [$("#nineText"),$("#tenText"),$("#elevenText"),$("#twelveText"),$("#oneText"),$("#twoText"),$("#threeText"),$("#fourText"),$("#fiveText")]
+var hourBlocks = [$("#nineText"), $("#tenText"), $("#elevenText"), $("#twelveText"), $("#oneText"), $("#twoText"), $("#threeText"), $("#fourText"), $("#fiveText")]
 
 // for loop comparing current time with index of hourblock hours to get color differentiation
 for (let i = 0; i < hourBlocks.length; i++) {
-    var hour = i + 9 
+    var hour = i + 9
     if (hour < moment().get("hour")) {
         hourBlocks[i].addClass("past")
     } else if (hour > moment().get("hour")) {
         hourBlocks[i].addClass("future")
-    } else if(hour === moment().get("hour")) {
+    } else if (hour === moment().get("hour")) {
         hourBlocks[i].addClass("present")
-    }    
+    }
 }
 
 // function to retrieve text values save to localStorage from prior saves
@@ -27,47 +27,47 @@ function retrieveSavedText() {
 }
 
 // save to localStorage upon save button clicks
-$("#nineSave").click(function() {
+$("#nineSave").click(function () {
     nineToSave = $("#nineText").val()
     localStorage.setItem("nineAM", nineToSave)
 })
 
-$("#tenSave").click(function() {
+$("#tenSave").click(function () {
     tenToSave = $("#tenText").val()
     localStorage.setItem("tenAM", tenToSave)
 })
 
-$("#elevenSave").click(function() {
+$("#elevenSave").click(function () {
     elevenToSave = $("#elevenText").val()
     localStorage.setItem("elevenAM", elevenToSave)
 })
 
-$("#twelveSave").click(function() {
+$("#twelveSave").click(function () {
     twelveToSave = $("#twelveText").val()
     localStorage.setItem("twelveAM", twelveToSave)
 })
 
-$("#oneSave").click(function() {
+$("#oneSave").click(function () {
     oneToSave = $("#oneText").val()
     localStorage.setItem("oneAM", oneToSave)
 })
 
-$("#twoSave").click(function() {
+$("#twoSave").click(function () {
     twoToSave = $("#twoText").val()
     localStorage.setItem("twoAM", twoToSave)
 })
 
-$("#threeSave").click(function() {
+$("#threeSave").click(function () {
     threeToSave = $("#threeText").val()
     localStorage.setItem("threeAM", threeToSave)
 })
 
-$("#fourSave").click(function() {
+$("#fourSave").click(function () {
     fourToSave = $("#fourText").val()
     localStorage.setItem("fourAM", fourToSave)
 })
 
-$("#fiveSave").click(function() {
+$("#fiveSave").click(function () {
     fiveToSave = $("#fiveText").val()
     localStorage.setItem("fiveAM", fiveToSave)
 })
